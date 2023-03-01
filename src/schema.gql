@@ -1,0 +1,54 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+}
+
+type Blog {
+  id: Int!
+  title: String!
+  body: String!
+  author: String!
+  date: String!
+}
+
+type Query {
+  users: [User!]!
+  blogs: [Blog!]!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  login(email: String!, password: String!): User!
+  logout: User!
+  createBlog(blogInput: BlogInput!): Blog!
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+  password: String!
+}
+
+input UpdateUserInput {
+  name: String
+  email: String
+  password: String
+  id: Int!
+}
+
+input BlogInput {
+  title: String!
+  body: String!
+  author: String!
+  date: String!
+}
+
+type Subscription {
+  blogPostAdded: Blog!
+}
